@@ -7,35 +7,46 @@ Code, Compile, Run and Debug online from anywhere in world.
 
 *******************************************************************************/
 import java.util.Scanner;
-import java.util.Random;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner ler = new Scanner(System.in);
-        Random sorteio = new Random();
+        Scanner leia = new Scanner(System.in);
 
+        System.out.println("Digite o valor de A: ");
+        double a = leia.nextDouble();
+        System.out.println("Digite o valor de B: ");
+        double b = leia.nextDouble();
+        System.out.println("Digite o valor de C: ");
+        double c = leia.nextDouble();
         
-        System.out.print("Digite o primeiro número inteiro: ");
-        int n1 = ler.nextInt();
-
-        System.out.print("Digite o segundo número inteiro: ");
-        int n2 = ler.nextInt();
-
+        double delta = (b*b)-(4*a*c);
+       
         
-        int menor = Math.min(n1, n2);
-        int maior = Math.max(n1, n2);
-        
-               int numeroSorteado = sorteio.nextInt(maior - menor + 1) + menor;
-
-        System.out.println("Número sorteado: " + numeroSorteado);
-
-      
-        if (numeroSorteado % 2 == 0) {
-            System.out.println("O número é PAR.");
-        } else {
-            System.out.println("O número é ÍMPAR.");
+        if (a == 0 && b == 0 && c != 0){
+            System.out.println("Coeficientes informados incorretamente.");
         }
-
-        ler.close();
-    }
-}
+        else if (a == 0 && b != 0 ){
+            System.out.println("Essa é uma equação de primeiro grau");
+        double primeiro_grau = -c / b;
+            System.out.println("Raiz = " + primeiro_grau);}
+        else {
+        if  (delta == 0){ 
+            System.out.println("Raízes reais iguais.");
+        double iguais = -b / (2 * a);
+            System.out.println("x1=x2="+ iguais);}
+        else if (delta < 0) {
+            System.out.println ("Esta equação não possui raízes reais");}
+        else if (delta > 0){
+            System.out.println("Esta equação possui duas raízes reais diferentes. ");
+        double x1 = (-b+Math.sqrt(delta))/(2*a);
+        double x2 = (-b-Math.sqrt(delta))/(2*a);
+        System.out.printf("x1 = %.2f \n", x1);
+        
+        System.out.printf("x2= %.2f \n", x2); }   
+        }
+        leia.close();
+        
+         }  
+            
+                }
+        
